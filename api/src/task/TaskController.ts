@@ -62,7 +62,6 @@ class TaskController {
       )
 
       return res.json({
-        data: data,
         message: 'Task successfully updated.',
       })
     } catch (error) {
@@ -88,11 +87,10 @@ class TaskController {
       const data = await TaskModel.destroy({ where: { id: req.params.id } })
 
       return res.json({
-        data: data,
-        message: 'Task successfully updated.',
+        message: 'Task successfully deleted.',
       })
     } catch (error) {
-      return res.status(500).send('Failed to update')
+      return res.status(500).send('Failed to delete')
     }
   }
 }
